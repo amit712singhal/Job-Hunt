@@ -36,9 +36,9 @@
           <label for="remember-me">Remember me</label>
         </div>
 
-      <div class="form-element">
-        <input type="submit" value="Submit" id="login-btn" class="submit-btn">
-      </div>
+        <div class="form-element">
+          <input type="submit" value="Submit" id="login-btn" class="submit-btn">
+        </div>
 
         <div class="form-element">
           <a href="#">Forgot password?</a>
@@ -113,8 +113,7 @@
 
         <h2>or</h2>
 
-        <form action="signup.php" method="POST" id="signup-form">
-
+        <form action="signup.php" method="POST" id="signup-form" novalidate>
           <div class="form-element">
             <label for="signup-email">Email</label>
             <input type="email" id="signup-email" name="email" placeholder="Enter Email" required>
@@ -135,9 +134,10 @@
           </div>
 
           <div class="form-element">
-            <input type="submit" value="Submit" id="login-btn" class="submit-btn">
+            <input type="submit" value="Submit" id="signup-btn" class="submit-btn">
           </div>
         </form>
+
       </div>
     </div>
 
