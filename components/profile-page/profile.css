@@ -1,0 +1,109 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../../assets/images/background.avif) center / cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.profile-container {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 800px;
+}
+
+.profile-header {
+    display: flex;
+    padding: 20px;
+    background: linear-gradient(to right, #3a7bd5, #3a6073);
+    color: #fff;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.profile-actions {
+    margin-top: 10px;
+}
+
+.profile-actions button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    background: #f5f5f5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.profile-content {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    width: 48%;
+}
+
+.section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3a7bd5;
+    padding-bottom: 5px;
+}
+
+.section p {
+    margin: 10px 0;
+}
+
+.storage-used progress {
+    width: 100%;
+    appearance: none;
+}
+
+.storage-used progress::-webkit-progress-bar {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.storage-used progress::-webkit-progress-value {
+    background-color: #3a7bd5;
+    border-radius: 5px;
+}
+
+.application-icons img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.teams p {
+    margin: 5px 0;
+}

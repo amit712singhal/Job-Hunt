@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #3a7bd5, #3a6073);
+    background: url(../../assets/images/background.avif) center / cover;
     height: 100vh;
     color: white;
     display: flex;
@@ -73,13 +73,6 @@ body {
     cursor: pointer;
 }
 
-.popup .form h2 {
-    text-align: center;
-    color: #222;
-    margin: 10px 0px 20px;
-    font-size: 25px;
-}
-
 .popup .form .form-element {
 
     margin: 15px 0px
@@ -128,7 +121,7 @@ body {
     border-radius: 5px;
 }
 
-.social-signup  {
+.social-signup {
     margin-bottom: 10px;
 }
 

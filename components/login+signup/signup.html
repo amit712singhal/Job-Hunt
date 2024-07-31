@@ -2,14 +2,13 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login and Sign Up Form</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="signup.css" />
   </head>
 
   <body>
-
     <div class="center">
       <button id="show-login">Login</button>
       <button id="show-signup">Sign Up</button>
@@ -18,40 +17,36 @@
     <div class="popup login-popup">
       <div class="close-btn">&times;</div>
       <div class="form">
-
         <h2>Log in</h2>
 
         <div class="form-element">
           <label for="email">Email</label>
-          <input type="text" id="email" placeholder="Enter Email">
+          <input type="text" id="email" placeholder="Enter Email" />
         </div>
 
         <div class="form-element">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter Password">
+          <input type="password" id="password" placeholder="Enter Password" />
         </div>
 
         <div class="form-element">
-          <input type="checkbox" id="remember-me">
+          <input type="checkbox" id="remember-me" />
           <label for="remember-me">Remember me</label>
         </div>
 
         <div class="form-element">
-          <input type="submit" value="Submit" id="login-btn" class="submit-btn">
+          <input type="submit" value="Submit" id="login-btn" class="submit-btn" />
         </div>
 
         <div class="form-element">
           <a href="#">Forgot password?</a>
         </div>
-
       </div>
     </div>
 
     <div class="popup signup-popup">
-
       <div class="close-btn">&times;</div>
       <div class="form">
-
         <div>
           <div class="social-signup">
             <div tabindex="0" class="login-content">
@@ -82,7 +77,7 @@
             <div tabindex="0" class="login-content">
               <div class="login-inner">
                 <span class="icon-container">
-                  <svg width="20px" height="20px" style="margin-left: 3px;" viewBox="0 0 24 24" role="img"
+                  <svg width="20px" height="20px" style="margin-left: 3px" viewBox="0 0 24 24" role="img"
                     xmlns="http://www.w3.org/2000/svg">
                     <title>LinkedIn icon</title>
                     <path
@@ -111,33 +106,43 @@
           </div>
         </div>
 
-        <h2>or</h2>
+        <h3 style="
+            text-align: center;
+            color: #222;
+            margin: 20px 0px 20px;
+            font-size: 18px;
+          ">or</h3>
 
         <form action="signup.php" method="POST" id="signup-form" novalidate>
+
           <div class="form-element">
-            <label for="signup-email">Email</label>
-            <input type="email" id="signup-email" name="email" placeholder="Enter Email" required>
+            <label for="signup-name">Name*</label>
+            <input type="text" id="signup-name" name="name" placeholder="Enter Name" required>
           </div>
 
           <div class="form-element">
-            <label for="signup-password">Password</label>
+            <label for="signup-email">Email*</label>
+            <input type="email" id="signup-email" name="email" placeholder="Enter Email" required />
+          </div>
+
+          <div class="form-element">
+            <label for="signup-password">Password*</label>
             <input type="password" id="signup-password" name="password" placeholder="Enter Password" required
-              autocomplete="current-password">
+              autocomplete="current-password" />
           </div>
 
           <div class="form-element">
-            <label>Sign up as:</label>
-            <input type="radio" id="job-seeker" name="user-type" value="job-seeker" required checked>
+            <label>Sign up as: </label>
+            <input type="radio" id="job-seeker" name="user-type" value="job-seeker" required checked />
             <label for="job-seeker">Job Seeker</label>
-            <input type="radio" id="recruiter" name="user-type" value="recruiter" required>
+            <input type="radio" id="recruiter" name="user-type" value="recruiter" required />
             <label for="recruiter">Recruiter</label>
           </div>
 
           <div class="form-element">
-            <input type="submit" value="Submit" id="signup-btn" class="submit-btn">
+            <input type="submit" value="Submit" id="signup-btn" class="submit-btn" />
           </div>
         </form>
-
       </div>
     </div>
 

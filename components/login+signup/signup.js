@@ -40,7 +40,7 @@ document
       .then((response) => response.json()) // Expect JSON response
       .then((data) => {
         if (data.status === "success") {
-          alert(data.message);
+          window.location.href = "../profile-page/profile.html";
         } else {
           alert(data.message);
         }
@@ -51,3 +51,5 @@ document
         alert("Signup failed. Please try again.");
       });
   });
+
+  
