@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+  </head>
+
+  <body style="
+      background: rgb(2, 0, 36);
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(209, 209, 237, 1) 100%,
+        rgba(0, 212, 255, 1) 100%
+      );
+    ">
+    <div class="container">
+      <div class="card col-md-6 offset-md-3" style="padding: 0; margin-top: 1.2%">
+        <div class="card-primary">
+          <div class="card-header text-center" style="
+              color: #fff;
+              background-color: #026ee0;
+              border-color: #007bff;
+            ">
+            <h1>Registration Form</h1>
+          </div>
+          <div class="card card-body">
+            <form action="php/connect.php" method="POST">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" />
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <div>
+                  <input type="radio" name="gender" value="m" id="male" />
+                  <label class="form-check-label" for="male" style="padding-right: 7px; padding-left: 3px">
+                    Male
+                  </label>
+                  <input type="radio" name="gender" value="f" id="female" />
+                  <label class="form-check-label" for="female" style="padding-right: 7px; padding-left: 3px">
+                    Female
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" />
+              </div>
+              <div class="form-group">
+                <label for="number">Phone Number</label>
+                <input type="text" class="form-control" id="number" name="number" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <input type="text" class="form-control" id="message" name="message" />
+              </div>
+              <input type="submit" class="btn btn-primary" />
+            </form>
+          </div>
+          <div class="card-footer text-right" style="background-color: #e7e7e7">
+            <large>&copy; Amit Singhal</large>
+          </div>
+          <div class="card-footer text-right">
+            <a href="php/fetch.php" class="btn btn-secondary">View Registration Data</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
