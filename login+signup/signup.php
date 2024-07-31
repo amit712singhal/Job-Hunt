@@ -1,12 +1,9 @@
 <?php
 
-// Split the name into first and last name
-// $name_parts = explode(' ', $name, 2);
-// $first_name = $name_parts[0];
-// $last_name = isset($name_parts[1]) ? $name_parts[1] : '';
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+header('Content-Type: application/json'); // Ensure the response is JSON
 
 // Database connection details
 $servername = 'localhost';
@@ -19,7 +16,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die(json_encode(["status" => "error", "message" => "Connection failed: " . $conn->connect_error]));
+    echo json_encode(["status" => "error", "message" => "Connection failed: " . $conn->connect_error]);
+    exit();
 }
 
 // Get POST data
@@ -29,7 +27,8 @@ $user_type = $_POST['user-type'];
 
 // Check if data is received correctly
 if (empty($email) || empty($password) || empty($user_type)) {
-    die(json_encode(["status" => "error", "message" => "Please fill in all fields."]));
+    echo json_encode(["status" => "error", "message" => "Please fill in all fields."]);
+    exit();
 }
 
 // Check if the email already exists
@@ -37,7 +36,8 @@ $email_check_query = "SELECT * FROM users WHERE email = ?";
 $stmt = $conn->prepare($email_check_query);
 
 if ($stmt === false) {
-    die(json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]));
+    echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);
+    exit();
 }
 
 $stmt->bind_param("s", $email);
@@ -45,7 +45,10 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows > 0) {
-    die(json_encode(["status" => "error", "message" => "Email is already registered."]));
+    echo json_encode(["status" => "error", "message" => "Email is already registered."]);
+    $stmt->close();
+    $conn->close();
+    exit();
 }
 
 $stmt->close();
@@ -57,7 +60,8 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $stmt = $conn->prepare("INSERT INTO users (email, hashed_password, user_type) VALUES (?, ?, ?)");
 
 if ($stmt === false) {
-    die(json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]));
+    echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);
+    exit();
 }
 
 $stmt->bind_param("sss", $email, $hashed_password, $user_type);

@@ -16,13 +16,21 @@ document
   .querySelector(".signup-popup .close-btn")
   .addEventListener("click", function () {
     document.querySelector(".signup-popup").classList.remove("active");
-  } );
-  
+  });
+
 document
-  .getElementById("login-btn")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    const form = document.getElementById("signup-form");
+  .getElementById("signup-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = event.target;
+
+    // Check if form is valid
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Show validation messages
+      return;
+    }
+
     const formData = new FormData(form);
 
     fetch("signup.php", {
