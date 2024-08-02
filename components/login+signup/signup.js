@@ -1,23 +1,28 @@
+//Login Popup on clicking login button
 document.querySelector("#show-login").addEventListener("click", function () {
   document.querySelector(".login-popup").classList.add("active");
 });
 
+//Signup Popup on clicking signup button
 document.querySelector("#show-signup").addEventListener("click", function () {
   document.querySelector(".signup-popup").classList.add("active");
 });
 
+// Close login popup
 document
   .querySelector(".login-popup .close-btn")
   .addEventListener("click", function () {
     document.querySelector(".login-popup").classList.remove("active");
   });
 
+// Close signup popup
 document
   .querySelector(".signup-popup .close-btn")
   .addEventListener("click", function () {
     document.querySelector(".signup-popup").classList.remove("active");
   });
 
+// Signup form submission
 document
   .getElementById("signup-form")
   .addEventListener("submit", function (event) {
@@ -52,4 +57,39 @@ document
       });
   });
 
-  
+// Login form submission
+document
+  .getElementById("login-btn")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
+    fetch("login.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json()) // Expect JSON response
+      .then((data) => {
+        if (data.status === "success") {
+          window.location.href = "../profile-page/profile.html";
+        } else {
+          alert(data.message);
+        }
+        console.log(data); // Log server response for debugging
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Login failed. Please try again.");
+      });
+  });

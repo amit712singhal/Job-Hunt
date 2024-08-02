@@ -5,48 +5,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login and Sign Up Form</title>
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="signup.css" />
   </head>
 
   <body>
+
+    <!-- Login and Sign Up Buttons -->
     <div class="center">
       <button id="show-login">Login</button>
       <button id="show-signup">Sign Up</button>
     </div>
 
+    <!-- Login form -->
     <div class="popup login-popup">
       <div class="close-btn">&times;</div>
       <div class="form">
-        <h2>Log in</h2>
 
-        <div class="form-element">
-          <label for="email">Email</label>
-          <input type="text" id="email" placeholder="Enter Email" />
-        </div>
+        <!-- Normal Login Form -->
+        <form action="login.php" method="POST" id="login-form" novalidate>
+          <h2>Log in</h2>
 
-        <div class="form-element">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter Password" />
-        </div>
+          <div class="form-element">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter Email" />
+          </div>
 
-        <div class="form-element">
-          <input type="checkbox" id="remember-me" />
-          <label for="remember-me">Remember me</label>
-        </div>
+          <div class="form-element">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" />
+          </div>
 
-        <div class="form-element">
-          <input type="submit" value="Submit" id="login-btn" class="submit-btn" />
-        </div>
+          <div class="form-element">
+            <input type="checkbox" id="remember-me"/>
+            <label for="remember-me">Remember me</label>
+          </div>
 
-        <div class="form-element">
-          <a href="#">Forgot password?</a>
-        </div>
+          <div class="form-element">
+            <input type="submit" value="Submit" id="login-btn" class="submit-btn" />
+          </div>
+
+          <div class="form-element">
+            <a href="#">Forgot password?</a>
+          </div>
+        </form>
       </div>
     </div>
 
+    <!-- Sign Up form -->
     <div class="popup signup-popup">
       <div class="close-btn">&times;</div>
       <div class="form">
+
+        <!-- Google, Facebook, LinkedIn Sign Up -->
         <div>
           <div class="social-signup">
             <div tabindex="0" class="login-content">
@@ -106,12 +118,14 @@
           </div>
         </div>
 
+        <!-- ---- Or ---- Divider -->
         <content-divider>
           <div class="divider-wrapper">
             <slot>Or</slot>
           </div>
         </content-divider>
 
+        <!-- Normal Sign Up Form -->
         <form action="signup.php" method="POST" id="signup-form" novalidate>
 
           <div class="form-element">
@@ -145,6 +159,7 @@
       </div>
     </div>
 
+    <!-- Custom JS -->
     <script src="signup.js"></script>
   </body>
 
