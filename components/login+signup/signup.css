@@ -14,6 +14,35 @@ body {
     font-family: "Raleway", sans-serif;
 }
 
+content-divider {
+    margin: 16px 0;
+}
+
+.divider-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0px;
+    width: 100%;
+    color: #ebebeb;
+    font: 14px / 17px adobe-clean;
+}
+
+.divider-wrapper::before {
+    margin-right: 10px;
+}
+
+.divider-wrapper::after {
+    margin-left: 10px;
+}
+
+.divider-wrapper::before, .divider-wrapper::after {
+    flex: 1 1 0%;
+    content: "";
+    border-bottom: 1px solid #545454;
+}
+
 .center {
     position: absolute;
     top: 50%;
@@ -42,7 +71,7 @@ body {
     transform: translate(-50%, -50%) scale(1.25);
     width: 380px;
     padding: 20px 30px;
-    background: #fff;
+    background: #282828;
     box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     transition: top 0ms ease-in-out 200ms,
@@ -65,8 +94,8 @@ body {
     right: 10px;
     width: 15px;
     height: 15px;
-    background: #888;
-    color: #eee;
+    background: #fff;
+    color: #000;
     text-align: center;
     line-height: 15px;
     border-radius: 15px;
@@ -74,13 +103,12 @@ body {
 }
 
 .popup .form .form-element {
-
     margin: 15px 0px
 }
 
 .popup .form .form-element label {
     font-size: 14px;
-    color: #222;
+    color: #fff;
 }
 
 .popup .form .form-element input[type="text"],
@@ -113,6 +141,9 @@ body {
 }
 
 .submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -126,10 +157,11 @@ body {
 }
 
 .social-signup .login-content, .submit-btn {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+    font-size: small;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 30px;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
@@ -137,16 +169,11 @@ body {
     width: 100%;
 }
 
-.social-signup .login-content:hover, .submit-btn:hover {
-    background-color: #f1f1f1;
-    color: black;
-}
-
 .login-inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 #login-btn {
