@@ -1,26 +1,10 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-body {
-    background: url(../../assets/images/background.avif) center / cover;
-    height: 100vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Raleway", sans-serif;
-}
-
 .profile-container {
     background-color: #fff;
     color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 800px;
+    width: 100%;
 }
 
 .profile-header {
