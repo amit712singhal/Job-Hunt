@@ -38,14 +38,14 @@ document
 
     const formData = new FormData(form);
 
-    fetch("signup.php", {
+    fetch("./server/php/signup.php", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json()) // Expect JSON response
       .then((data) => {
         if (data.status === "success") {
-          window.location.href = "../profile-page/profile.html";
+          window.location.href = "./client/src/pages/profile.html";
         } else {
           alert(data.message);
         }
@@ -75,14 +75,14 @@ document
     formData.append("email", email);
     formData.append("password", password);
 
-    fetch("login.php", {
+    fetch("./server/php/login.php", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json()) // Expect JSON response
       .then((data) => {
         if (data.status === "success") {
-          window.location.href = "../profile-page/profile.html";
+          window.location.href = "./client/src/pages/profile.html";
         } else {
           alert(data.message);
         }

@@ -14,49 +14,49 @@
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="profile.css">
+		<link rel="stylesheet" href="../../public/styles/profile.css">
 	</head>
 
 	<body>
 
-		<header class="p-3 mb-0 border-bottom">
-			<div class="container">
-				<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-					<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-						<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-							<use xlink:href="#bootstrap"></use>
-						</svg>
-					</a>
-
-					<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-						<li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-						<li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
-						<li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
-						<li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-					</ul>
-
-					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-						<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-					</form>
-
-					<div class="dropdown text-end">
-						<a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-						</a>
-						<ul class="dropdown-menu text-small">
-							<li><a class="dropdown-item" href="#">New project...</a></li>
-							<li><a class="dropdown-item" href="#">Settings</a></li>
-							<li><a class="dropdown-item" href="#">Profile</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="../login+signup/signup.html">Sign out</a></li>
-						</ul>
-					</div>
-				</div>
+		<nav
+			class="container-fluid d-flex justify-content-between flex-lg-row gap-lg-3 gap-1 flex-column align-items-center px-5 navbar align-content-center">
+			<div class="logo-section d-flex">
+				<img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="20" alt="MDB Logo"
+					loading="lazy">
 			</div>
-		</header>
+
+			<div class="gap-lg-5 d-flex justify-content-center align-items-center">
+				<a href="#" class="nav-items text-decoration-none text-center">Home</a>
+				<a href="#" class="nav-items text-decoration-none text-center">About Us</a>
+				<a href="#" class="nav-items text-decoration-none text-center">Contact Us</a>
+				<a href="#" class="nav-items text-decoration-none text-center">Faq's</a>
+			</div>
+
+			<form class="d-flex input-group w-auto">
+				<input type="search" class="form-control  " placeholder="Search" aria-label="Search"
+					aria-describedby="search-addon">
+				<span class="input-group-text border-0  " id="search-addon">
+					<i class="fas fa-search"></i>
+				</span>
+			</form>
+
+			<div class="dropdown text-end">
+				<a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					<img src="../../assets/images/default-pfp.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+				</a>
+				<ul class="dropdown-menu text-small">
+					<li><a class="dropdown-item" href="#">New project...</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="../../../index.html">Sign out</a></li>
+				</ul>
+			</div>
+		</nav>
 
 		<div class="profile-container">
 			<div class="profile-header">
@@ -96,9 +96,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- Custom JS -->
-		<script src="profile.js"></script>
 
 		<!-- Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
