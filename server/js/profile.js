@@ -26,8 +26,8 @@ profilePicInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 });
-
 //   <!-- Cropper.js -->
+
 const imageToCrop = document.getElementById("imageToCrop");
 const cropperModal = $("#cropperModal");
 let cropper;

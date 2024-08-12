@@ -1,3 +1,10 @@
+function handlefaqs() {
+  let elements = document.getElementsByClassName("accordion-collapse");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.display = "none";
+  }
+}
+
 // Login Popup on clicking login button
 document.querySelector("#show-login").addEventListener("click", function () {
   // Close signup popup if active
