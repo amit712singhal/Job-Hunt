@@ -35,7 +35,6 @@
   box-shadow: 0 0 4px var(--primary-color);
   background-color: white;
   color: #000 !important;
-
 }
 
 .form-group {
@@ -44,18 +43,19 @@
   align-items: center;
   height: auto;
   width: auto;
-
 }
 
 .form-group>label {
   padding: 3px;
   margin-bottom: 0;
   width: 40%;
+
   text-align: start;
 }
 
 .profile-detail:read-only {
   background: transparent;
+
   flex: 1;
   outline: none;
   color: #000;
@@ -67,22 +67,6 @@
 .profile-detail {
   background: transparent;
 
-  flex: 1;
-  outline: none;
-  color: #5a5858;
-  height: auto;
-  padding: 2px;
-  margin-bottom: 5px;
-
-}
-
-.profile-detail[read-onlyreadonly]:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.profile-detail {
-  background: transparent;
   flex: 1;
   outline: none;
   color: #5a5858;
