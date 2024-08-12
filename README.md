@@ -9,7 +9,8 @@ Career Link is a web application designed for hirers and recruiters to connect a
    ```bash
    git clone https://github.com/amit712singhal/career-link.git
    cd career-link
-
+   ```
+   
 ## File Structure
 
 ```
