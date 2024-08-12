@@ -1,117 +1,186 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* border: 1px solid red ; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 :root {
-    --primary-color: #111534;
-    --secondary-color: #fff;
-    --thirseray-color: #000;
+  --primary-color: #111534;
+  --secondary-color: #fff;
+  --thirseray-color: #000;
 }
 
+.Edit-button {
+  background-color: var(--primary-color);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  max-width: 160px;
+}
+.Edit-button:hover {
+  box-shadow: 0 0 4px var(--primary-color);
+  background-color: white;
+  color: #000 !important;
+}
+.Save-Button {
+  background-color: var(--primary-color);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  max-width: 160px !important;
+}
+.Save-Button:hover {
+  box-shadow: 0 0 4px var(--primary-color);
+  background-color: white;
+  color: #000 !important;
+  
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: auto;
+
+}
+.form-group>label{
+    padding: 3px;
+    margin-bottom: 0;
+    width:40%;
+
+    text-align: start;
+
+}
+.profile-detail:read-only{
+  background: transparent;
+
+  flex: 1;
+  outline: none;
+  color: #000;
+  height: auto;
+ padding: 2px;
+ 
+
+
+}
+.profile-detail[read-onlyreadonly]:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .profile-container {
+    margin-top: 50px;
+  }
+  .edit-mode input {
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+
 nav {
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .nav-items {
-    color: var(--secondary-color2);
-    transition: all 0.1s ease-in-out;
-
+  color: var(--secondary-color2);
+  transition: all 0.1s ease-in-out;
 }
 
 .nav-items:hover {
-    color: gray;
+  color: gray;
 }
 
 .rounded-circle {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .nav-items {
-    margin: 0 10px;
-    color: var(--secondary-color);
+  margin: 0 10px;
+  color: var(--secondary-color);
 }
 
 .main-content {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .profile-container {
-    background-color: #fff;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 100%;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
 }
 
 .profile-header {
-    display: flex;
-    padding: 20px;
-    color: #000;
+  display: flex;
+  padding: 20px;
+  color: #000;
 }
 
 .profile-pic {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
 }
 
 .profile-info h1 {
-    font-size: 24px;
-    margin-bottom: 5px;
+  font-size: 24px;
+  margin-bottom: 5px;
 }
 
 .profile-info p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .profile-actions {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .profile-actions button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #222;
-    background: #f5f5f5;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .profile-content {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .section {
-    width: 48%;
+  width: 48%;
 }
 
 .section h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #3a7bd5;
-    padding-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #3a7bd5;
+  padding-bottom: 5px;
 }
 
 .section p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .application-icons img {
-    width: 30px;
-    margin-right: 10px;
+  width: 30px;
+  margin-right: 10px;
 }
 
 .teams p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
