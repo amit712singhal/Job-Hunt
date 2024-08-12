@@ -58,9 +58,21 @@
   color: #000;
   height: auto;
  padding: 2px;
+ margin-bottom: 5px;
  
 
 
+}
+.profile-detail{
+  background: transparent;
+
+  flex: 1;
+  outline: none;
+  color: #5a5858;
+  height: auto;
+ padding: 2px; 
+ margin-bottom: 5px;
+ 
 }
 .profile-detail[read-onlyreadonly]:focus {
     outline: none;
