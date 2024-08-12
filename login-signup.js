@@ -26,41 +26,6 @@ document
     document.querySelector(".signup-popup").classList.remove("active");
   });
 
-// Signup form submission
-document
-  .getElementById("signup-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const form = event.target;
-
-    // Check if form is valid
-    if (!form.checkValidity()) {
-      form.reportValidity(); // Show validation messages
-      return;
-    }
-
-    const formData = new FormData(form);
-
-    fetch("./server/php/signup.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json()) // Expect JSON response
-      .then((data) => {
-        if (data.status === "success") {
-          window.location.href = "./client/src/pages/profile.html";
-        } else {
-          alert(data.message);
-        }
-        console.log(data); // Log server response for debugging
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Signup failed. Please try again.");
-      });
-  });
-
 // Login form submission
 document
   .getElementById("login-btn")
@@ -95,5 +60,40 @@ document
       .catch((error) => {
         console.error("Error:", error);
         alert("Login failed. Please try again.");
+      });
+  });
+
+// Signup form submission
+document
+  .getElementById("signup-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = event.target;
+
+    // Check if form is valid
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Show validation messages
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    fetch("./server/php/signup.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json()) // Expect JSON response
+      .then((data) => {
+        if (data.status === "success") {
+          window.location.href = "./client/src/pages/profile.html";
+        } else {
+          alert(data.message);
+        }
+        console.log(data); // Log server response for debugging
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Signup failed. Please try again.");
       });
   });
