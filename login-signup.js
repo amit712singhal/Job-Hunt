@@ -1,10 +1,14 @@
-//Login Popup on clicking login button
+// Login Popup on clicking login button
 document.querySelector("#show-login").addEventListener("click", function () {
+  // Close signup popup if active
+  document.querySelector(".signup-popup").classList.remove("active");
   document.querySelector(".login-popup").classList.add("active");
 });
 
-//Signup Popup on clicking signup button
+// Signup Popup on clicking signup button
 document.querySelector("#show-signup").addEventListener("click", function () {
+  // Close login popup if active
+  document.querySelector(".login-popup").classList.remove("active");
   document.querySelector(".signup-popup").classList.add("active");
 });
 
