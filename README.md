@@ -1,4 +1,9 @@
-Rohan bhai aap main branch pe karlo kaam
+The main code for the site is available on the `master` branch of the repository. You can access it by cloning the repository and checking out the `master` branch:
 
-final site code is uploaded on master branch so do not touch it at all, although I have added some restrictions, I will update each feature by reading about it or merge the pull request
-if issued by someone after checking it.
+```sh
+git clone https://github.com/amit712singhal/Career-Link.git
+cd Career-Link
+git checkout master
+```
+
+For more details on the implementation and structure of the code, please refer to the files in the master branch.
