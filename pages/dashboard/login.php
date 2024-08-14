@@ -31,7 +31,7 @@ if (empty($email) || empty($password)) {
 }
 
 // Check if the email exists
-$email_check_query = "SELECT hashed_password FROM users WHERE email = ?";
+$email_check_query = "SELECT hashed_password FROM login_signup WHERE email = ?";
 $stmt = $conn->prepare($email_check_query);
 
 if ($stmt === false) {

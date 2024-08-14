@@ -199,3 +199,12 @@ nav {
 .teams p {
   margin: 5px 0;
 }
+
+.menu-items{
+  position: relative;
+  left: -50px;
+}
+
+.dropdown{
+  margin-right: 130px;
+}

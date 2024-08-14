@@ -33,7 +33,7 @@ if (empty($name) || empty($email) || empty($password) || empty($user_type)) {
 }
 
 // Check if the email already exists
-$email_check_query = "SELECT * FROM users WHERE email = ?";
+$email_check_query = "SELECT * FROM login_signup WHERE email = ?";
 $stmt = $conn->prepare($email_check_query);
 
 if ($stmt === false) {
@@ -63,7 +63,7 @@ $first_name = $name_parts[0];
 $last_name = isset($name_parts[1]) ? $name_parts[1] : '';
 
 // Prepare and bind
-$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, hashed_password, user_type) VALUES (?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO login_signup (first_name, last_name, email, hashed_password, user_type) VALUES (?, ?, ?, ?, ?)");
 
 if ($stmt === false) {
     echo json_encode(["status" => "error", "message" => "Prepare failed: " . $conn->error]);

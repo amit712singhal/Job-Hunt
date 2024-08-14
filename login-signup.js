@@ -5,33 +5,46 @@ function handlefaqs() {
   }
 }
 
-// Login Popup on clicking login button
-document.querySelector("#show-login").addEventListener("click", function () {
-  // Close signup popup if active
-  document.querySelector(".signup-popup").classList.remove("active");
-  document.querySelector(".login-popup").classList.add("active");
-});
+const loginBtn = document.querySelector( '.login-btn' );
+const signupBtn = document.querySelector( '.signup-btn' );
+const popupOverlay = document.querySelector( '.popup-overlay' );
+const wrapper = document.querySelector( '.wrapper' );
+const loginLink = document.querySelector( '.login-link' );
+const registerLink = document.querySelector('.register-link');
+const iconClose = document.querySelector( '.icon-close' );
 
-// Signup Popup on clicking signup button
-document.querySelector("#show-signup").addEventListener("click", function () {
-  // Close login popup if active
-  document.querySelector(".login-popup").classList.remove("active");
-  document.querySelector(".signup-popup").classList.add("active");
-});
+popupOverlay.addEventListener( 'click', function ()
+{
+  document.querySelector( '.popup-overlay' ).style.display = 'none';
+  wrapper.classList.remove( 'active-popup' );
+} );
 
-// Close login popup
-document
-  .querySelector(".login-popup .close-btn")
-  .addEventListener("click", function () {
-    document.querySelector(".login-popup").classList.remove("active");
-  });
+registerLink.addEventListener( 'click', () =>
+{
+  wrapper.classList.add('active');
+} );
 
-// Close signup popup
-document
-  .querySelector(".signup-popup .close-btn")
-  .addEventListener("click", function () {
-    document.querySelector(".signup-popup").classList.remove("active");
-  });
+loginLink.addEventListener('click', () => {
+  wrapper.classList.remove('active');
+} );
+
+iconClose.addEventListener('click', () => {
+  wrapper.classList.remove( 'active-popup' );
+  wrapper.classList.remove('active');
+  document.querySelector('.popup-overlay').style.display = 'none';
+} );
+
+loginBtn.addEventListener('click', function() {
+    document.querySelector('.popup-overlay').style.display = 'block';
+    wrapper.classList.add('active-popup');
+} );
+
+
+signupBtn.addEventListener('click', function() {
+    document.querySelector('.popup-overlay').style.display = 'block';
+    wrapper.classList.add('active-popup');
+    wrapper.classList.add('active');
+} );
 
 // Login form submission
 document
@@ -51,14 +64,14 @@ document
     formData.append("email", email);
     formData.append("password", password);
 
-    fetch("./server/php/login.php", {
+    fetch("./pages/dashboard/login.php", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json()) // Expect JSON response
       .then((data) => {
         if (data.status === "success") {
-          window.location.href = "./client/src/pages/profile.html";
+          window.location.href = "./pages/user/profile.html";
         } else {
           alert(data.message);
         }
@@ -86,14 +99,14 @@ document
 
     const formData = new FormData(form);
 
-    fetch("./server/php/signup.php", {
+    fetch("./pages/dashboard/signup.php", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json()) // Expect JSON response
       .then((data) => {
         if (data.status === "success") {
-          window.location.href = "./client/src/pages/profile.html";
+          window.location.href = "./pages/user/profile.html";
         } else {
           alert(data.message);
         }
@@ -104,10 +117,3 @@ document
         alert("Signup failed. Please try again.");
       });
   });
-
-function handlefaqs() {
-  let elements = document.getElementsByClassName("accordion-collapse");
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].style.display = "none";
-  }
-}

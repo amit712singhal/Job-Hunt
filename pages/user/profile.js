@@ -1,6 +1,31 @@
 const editButton = document.getElementById("editButton");
 const saveButton = document.getElementById("saveButton");
-const inputs = document.querySelectorAll("#profileForm input");
+const inputs = document.querySelectorAll( "#profileForm input" );
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('profile.php')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('name').value = data.name;
+      document.getElementById('contactNo').value = data.contactNo;
+      document.getElementById('email').value = data.email;
+      document.getElementById('profession').value = data.profession;
+    });
+});
+
+function submitForm(event) {
+  event.preventDefault();
+  const formData = new FormData(document.getElementById('profileForm'));
+
+  fetch('profile.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+  });
+}
 
 editButton.addEventListener("click", function () {
   inputs.forEach((input) => input.removeAttribute("readonly"));

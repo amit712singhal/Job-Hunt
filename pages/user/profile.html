@@ -18,7 +18,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../public/styles/profile.css" />
+    <link rel="stylesheet" href="profile.css" />
 
   </head>
 
@@ -27,11 +27,11 @@
     <nav
       class="container-fluid d-flex justify-content-between flex-lg-row gap-lg-3 gap-1 flex-column align-items-center px-5 navbar align-content-center">
       <div class="logo-section d-flex">
-        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="20" alt="MDB Logo"
+        <img src="../../assets/logo.png" height="30" alt="MDB Logo"
           loading="lazy" />
       </div>
 
-      <div class="gap-lg-5 d-flex justify-content-center align-items-center">
+      <div class="menu-items gap-lg-1 d-flex justify-content-center align-items-center">
         <a href="#" class="nav-items text-decoration-none text-center">Home</a>
         <a href="#" class="nav-items text-decoration-none text-center">About Us</a>
         <a href="#" class="nav-items text-decoration-none text-center">Contact Us</a>
@@ -47,14 +47,19 @@
       </form>
 
       <div class="dropdown text-end">
-        <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <img src="../../assets/images/default-pfp.jpg" alt="mdo" width="32" height="32" class="rounded-circle" />
+        <a href="#" class="c-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../assets/default-pfp.jpg" alt="mdo" width="32" height="32" class="rounded-circle" />
         </a>
+        <div class="dropdown-menu">
+          <!-- Add your dropdown items here -->
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="../../index.html">Logout</a>
+        </div>
       </div>
     </nav>
 
-    <div class="container profile-container ">
+    <div class="container profile-container" style="box-shadow: none;">
       <div class="row justify-content-center d-flex">
         <div class="col-md-8 ">
           <div class="card  ">
@@ -81,16 +86,14 @@
                   Change Picture
                 </button>
               </div>
-              <form id="profileForm" class="d-flex flex-wrap  flex-column">
-                <div class="form-group  ">
+              <form id="profileForm" class="d-flex flex-wrap flex-column onsubmit="submitForm(event)">
+                <div class="form-group">
                   <label for="name ">Name </label>
-                  <input type="text" class="form-control p-1   profile-detail" id="name" value="Rohan Keshri"
-                    readonly />
+                  <input type="text" class="form-control p-1 profile-detail" id="name" name="name"/>
                 </div>
                 <div class="form-group  ">
                   <label for="contactNo">Contact No. </label>
-                  <input type="text" class="form-control p-1  profile-detail w-md-50" id="contactNo" value="78985 45555"
-                    readonly />
+                  <input type="text" class="form-control p-1  profile-detail w-md-50" id="contactNo" name="contactNo"/>
                 </div>
                 <div class="form-group  ">
                   <label for="email">Email </label>
@@ -165,7 +168,7 @@
       crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
-    <script src="../../../server/js/profile.js"></script>
+    <script src="./profile.js"></script>
 
   </body>
 
