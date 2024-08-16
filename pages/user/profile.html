@@ -79,14 +79,14 @@
               <div
                 class="text-center p-xl-4  mb-4 gap-2 align-items-center justify-content-center  d-flex align-content-center justify-content-center flex-column ">
 
-                <img src="https://placehold.co/400" alt="Profile Picture" class="profile-img img-fluid "
+                <img src="../../assets/images/default-pfp.jpg" alt="Profile Picture" class="profile-img img-fluid "
                   id="profileImg" />
                 <input type="file" id="profilePicInput" style="display: none" accept="image/*" />
                 <button class="btn btn-success" onclick="document.getElementById('profilePicInput').click();">
                   Change Picture
                 </button>
               </div>
-              <form id="profileForm" class="d-flex flex-wrap flex-column onsubmit=" submitForm(event)">
+              <form id="profileForm" class="d-flex flex-wrap flex-column" onsubmit="submitForm(event)">
                 <div class="form-group">
                   <label for="name ">Name </label>
                   <input type="text" class="form-control p-1 profile-detail" id="name" name="name" />
@@ -168,7 +168,7 @@
       crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
-    <script src="./profile.js"></script>
+    <script src="profile.js"></script>
 
   </body>
 
