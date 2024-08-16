@@ -17,20 +17,14 @@ Career Link is a web application designed for hirers and recruiters to connect a
 Career-Link/
   ├── client/
       ├── assets/
-          ├── fonts/
           ├── images/
-      ├── public/styles/
-          ├── dashboard.css
-          ├── login-signup.css
-          ├── profile.css
-      ├── src/pages/
-          ├── profile.html
-  ├── server/
-      ├── js/
-          ├── profile.js
-      ├── php/
-          ├── login.php
-          ├── signup.php
+            ├── about_us/
+      ├── pages/
+          ├── about_us/
+          ├── admin/
+          ├── dashboard/
+          ├── user/
   ├── index.html
   ├── login-signup.js
+  ├── README.md
 ```
