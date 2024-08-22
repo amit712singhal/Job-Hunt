@@ -12,7 +12,8 @@ saveButton.addEventListener("click", function () {
   inputs.forEach((input) => input.setAttribute("readonly", true));
   saveButton.style.display = "none";
   editButton.style.display = "inline-block";
-});
+} );
+
 const profileImg = document.getElementById("profileImg");
 const profilePicInput = document.getElementById("profilePicInput");
 
@@ -26,6 +27,30 @@ profilePicInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
   }
 } );
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Fetching profile data...");
+
+    function fetchProfileData() {
+        fetch('fetch_profile.php')  // No need to change this since it's already in the same directory
+            .then(response => {
+                console.log("Response received:", response);
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    console.error("Error:", data.error);
+                } else {
+                    console.log("Data received:", data);
+                    document.getElementById('name').value = data.name;
+                    document.getElementById('email').value = data.email;
+                }
+            })
+            .catch(error => console.error('Error fetching profile data:', error));
+    }
+
+    fetchProfileData();
+});
 
 
 // Cropper.js

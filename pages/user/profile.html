@@ -88,33 +88,32 @@
               </div>
               <form id="profileForm" class="d-flex flex-wrap flex-column" onsubmit="submitForm(event)">
                 <div class="form-group">
-                  <label for="name ">Name </label>
-                  <input type="text" class="form-control p-1 profile-detail" id="name" name="name" />
+                  <label for="name">Name </label>
+                  <input type="text" class="form-control p-1 profile-detail" id="name" name="name" readonly />
                 </div>
-                <div class="form-group  ">
+                <div class="form-group">
                   <label for="contactNo">Contact No. </label>
-                  <input type="text" class="form-control p-1  profile-detail w-md-50" id="contactNo" name="contactNo" />
-                </div>
-                <div class="form-group  ">
-                  <label for="email">Email </label>
-                  <input type="text" class="form-control p-1   profile-detail" id="email" value="xyz@abc.com"
+                  <input type="text" class="form-control p-1 profile-detail w-md-50" id="contactNo" name="contactNo"
                     readonly />
                 </div>
                 <div class="form-group">
+                  <label for="email">Email </label>
+                  <input type="text" class="form-control p-1 profile-detail" id="email" name="email" readonly />
+                </div>
+                <div class="form-group">
                   <label for="profession">Profession</label>
-                  <input type="text" class="form-control p-1 profile-detail" id="profession" value="Frontend Developer"
+                  <input type="text" class="form-control p-1 profile-detail" id="profession" name="profession"
                     readonly />
                 </div>
                 <div class="form-group">
                   <label for="experience">Experience</label>
-                  <input type="text" class="form-control p-1 profile-detail" id="experience" value="3 Years" readonly />
+                  <input type="text" class="form-control p-1 profile-detail" id="experience" name="experience"
+                    readonly />
                 </div>
                 <div class="form-group">
                   <label for="field">Field</label>
-                  <input type="text" class="form-control p-1 profile-detail" id="field" value="Web Development, SEO"
-                    readonly />
+                  <input type="text" class="form-control p-1 profile-detail" id="field" name="field" readonly />
                 </div>
-
               </form>
             </div>
           </div>
@@ -168,7 +167,7 @@
       crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
-    <script src="profile.js"></script>
+    <script src="./profile.js"></script>
 
   </body>
 
