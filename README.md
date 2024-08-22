@@ -27,12 +27,12 @@ Career-Link/
             ├── adminDashboard.html
             ├── adminDashboard.css
             ├── adminDashboard.js
-       ├── dashboard/ (dashboard.css / login-signup.css / login.php / signup.php)
+       ├── dashboard/
             ├── dashboard.css
             ├── login-signup.css
             ├── login.php
             ├── signup.php
-       ├── user/ (profile.html/css/js / fetch_profile.php)
+       ├── user/
             ├── profile.html
             ├── profile.css
             ├── profile.js
