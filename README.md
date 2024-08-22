@@ -19,10 +19,24 @@ Career-Link/
        ├── images/
             ├── about_us/
   ├── pages/
-       ├── about_us/ (about_us.html/css/js)
-       ├── admin/ (adminDashboard.html/css/js)
+       ├── about_us/
+            ├── about_us.html
+            ├── about_us.css
+            ├── about_us.js
+       ├── admin/
+            ├── adminDashboard.html
+            ├── adminDashboard.css
+            ├── adminDashboard.js
        ├── dashboard/ (dashboard.css / login-signup.css / login.php / signup.php)
+            ├── dashboard.css
+            ├── login-signup.css
+            ├── login.php
+            ├── signup.php
        ├── user/ (profile.html/css/js / fetch_profile.php)
+            ├── profile.html
+            ├── profile.css
+            ├── profile.js
+            ├── fetch_profile.php
   ├── index.html
   ├── login-signup.js
   ├── README.md
