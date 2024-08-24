@@ -19,20 +19,48 @@ if ($conn->connect_error) {
   die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
 
-// Assuming the user ID is passed as a parameter (you might use sessions or other methods to get the logged-in user ID)
-$user_id = 1; // Replace with the actual user ID
+session_start();
+$user_id = $_SESSION['user_id'] ?? null;
+
+if (!isset($user_id)) {
+  echo json_encode(["error" => "User not logged in"]);
+  header("Location: ../../index.html"); // Redirect to login page if not logged in
+  exit();
+}
 
 // Prepare and bind
-$stmt = $conn->prepare("SELECT first_name, last_name, email FROM login_signup WHERE user_id = ?");
+$query = "
+  SELECT
+    ls.first_name,
+    ls.last_name,
+    ls.email,
+    up.contactNo,
+    up.profession,
+    up.experience,
+    up.field
+  FROM
+    login_signup ls
+  LEFT JOIN
+    user_profile up
+  ON
+    ls.user_id = up.user_id
+  WHERE
+    ls.user_id = ?";
+
+$stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$stmt->bind_result($first_name, $last_name, $email);
+$stmt->bind_result($first_name, $last_name, $email, $contactNo, $profession, $experience, $field);
 
 // Fetch the data
 $response = [];
 if ($stmt->fetch()) {
   $response['name'] = $first_name . ' ' . $last_name;
   $response['email'] = $email;
+  $response['contactNo'] = $contactNo;
+  $response['profession'] = $profession;
+  $response['experience'] = $experience;
+  $response['field'] = $field;
 } else {
   $response['error'] = "No user found with the given ID.";
 }
