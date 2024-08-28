@@ -8,6 +8,13 @@
   z-index: 999;
 }
 
+.scrollable-form-container {
+  /* Adjust height as needed */
+  overflow-y: auto;
+  /* Enables scrolling */
+
+}
+
 .wrapper {
   position: fixed;
   background: transparent;
