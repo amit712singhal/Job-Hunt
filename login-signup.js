@@ -5,46 +5,43 @@ function handlefaqs() {
   }
 }
 
-const loginBtn = document.querySelector( '.login-btn' );
-const signupBtn = document.querySelector( '.signup-btn' );
-const popupOverlay = document.querySelector( '.popup-overlay' );
-const wrapper = document.querySelector( '.wrapper' );
-const loginLink = document.querySelector( '.login-link' );
-const registerLink = document.querySelector('.register-link');
-const iconClose = document.querySelector( '.icon-close' );
+const loginBtn = document.querySelector(".login-btn");
+const signupBtn = document.querySelector(".signup-btn");
+const popupOverlay = document.querySelector(".popup-overlay");
+const wrapper = document.querySelector(".wrapper");
+const loginLink = document.querySelector(".login-link");
+const registerLink = document.querySelector(".register-link");
+const iconClose = document.querySelector(".icon-close");
 
-popupOverlay.addEventListener( 'click', function ()
-{
-  document.querySelector( '.popup-overlay' ).style.display = 'none';
-  wrapper.classList.remove( 'active-popup' );
-} );
+popupOverlay.addEventListener("click", function () {
+  document.querySelector(".popup-overlay").style.display = "none";
+  wrapper.classList.remove("active-popup");
+});
 
-registerLink.addEventListener( 'click', () =>
-{
-  wrapper.classList.add('active');
-} );
+registerLink.addEventListener("click", () => {
+  wrapper.classList.add("active");
+});
 
-loginLink.addEventListener('click', () => {
-  wrapper.classList.remove('active');
-} );
+loginLink.addEventListener("click", () => {
+  wrapper.classList.remove("active");
+});
 
-iconClose.addEventListener('click', () => {
-  wrapper.classList.remove( 'active-popup' );
-  wrapper.classList.remove('active');
-  document.querySelector('.popup-overlay').style.display = 'none';
-} );
+iconClose.addEventListener("click", () => {
+  wrapper.classList.remove("active-popup");
+  wrapper.classList.remove("active");
+  document.querySelector(".popup-overlay").style.display = "none";
+});
 
-loginBtn.addEventListener('click', function() {
-    document.querySelector('.popup-overlay').style.display = 'block';
-    wrapper.classList.add('active-popup');
-} );
+loginBtn.addEventListener("click", function () {
+  document.querySelector(".popup-overlay").style.display = "block";
+  wrapper.classList.add("active-popup");
+});
 
-
-signupBtn.addEventListener('click', function() {
-    document.querySelector('.popup-overlay').style.display = 'block';
-    wrapper.classList.add('active-popup');
-    wrapper.classList.add('active');
-} );
+signupBtn.addEventListener("click", function () {
+  document.querySelector(".popup-overlay").style.display = "block";
+  wrapper.classList.add("active-popup");
+  wrapper.classList.add("active");
+});
 
 // Login form submission
 document
@@ -117,3 +114,108 @@ document
         alert("Signup failed. Please try again.");
       });
   });
+
+// newform
+
+let handleFormDetail = (event) => {
+  event.preventDefault();
+
+  // Determine the selected user type
+  const userType = document.querySelector(
+    'input[name="user-type"]:checked'
+  ).value;
+
+  // Clear the container before adding a new form
+  const newFormContainer = document.getElementById("new-form-container");
+  newFormContainer.innerHTML = "";
+
+  if (userType === "job-seeker") {
+    // Inject Job Seeker Form
+    newFormContainer.innerHTML = `
+         <form
+          action="./client/pages/dashboard/signup.php"
+          method="POST"
+          id="signup-form"
+          novalidate
+        >
+          <div class="input-box">
+            <span class="icon">
+             <ion-icon name="reader"></ion-icon>
+            </span>
+            <input type="text" id="Course" name="Course" required />
+            <label for="Course">Course</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+
+            </span>
+            <input type="number" id="yearOfGraduating" name="yearOfGraduating" required />
+            <label for="yearOfGraduating">Year Of Graduating </label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+
+            </span>
+            <input type="text" id="University" name="University" required />
+            <label for="University">University/Institute</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+            <ion-icon name="document"></ion-icon> <!-- Updated icon to represent documents/files -->
+            </span>
+            <input type="file" id="Field" name="Field" accept="application/pdf" required />
+            <label for="Field"></label> <!-- Updated label to reflect PDF upload -->
+          </div>
+        </div>
+      `;
+  } else if (userType === "recruiter") {
+    // Inject Recruiter Form
+    newFormContainer.innerHTML = `
+          <form
+          action="./client/pages/dashboard/signup.php"
+          method="POST"
+          id="signup-form"
+          novalidate
+        >
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" id="Organisation" name="organsiationName" required />
+            <label for="Organisation">Organisation Name</label>
+          </div>
+
+
+          <div class="input-box">
+            <span class="icon">
+
+            </span>
+            <input type="text" id="WorkStatus" name="WorkStatus" required />
+            <label for="WorkStatus">Works Status</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+
+            </span>
+            <input type="text" id="Country" name="Country" required />
+            <label for="Country">Country</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+
+            </span>
+            <input type="text" id="Field" name="Field" required />
+            <label for="Field">Field</label>
+          </div>
+
+        </div>
+      `;
+  }
+};
+
+document
+  .getElementById("job-seeker")
+  .addEventListener("change", handleFormDetail);
+document
+  .getElementById("recruiter")
+  .addEventListener("change", handleFormDetail);
