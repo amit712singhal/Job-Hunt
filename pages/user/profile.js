@@ -9,50 +9,59 @@ editButton.addEventListener("click", function () {
   editButton.style.display = "none";
 });
 
-saveButton.addEventListener("click", function () {
-  const profileData = {
-    name: document.getElementById('name').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    contactNo: document.getElementById('contactNo').value.trim(),
-    profession: document.getElementById('profession').value.trim(),
-    experience: document.getElementById('experience').value.trim(),
-    field: document.getElementById('field').value.trim()
-  };
+saveButton.addEventListener( "click", function ()
+{
+  const profileData = new FormData();
+  profileData.append( 'name', document.getElementById( 'name' ).value.trim() );
+  profileData.append( 'email', document.getElementById( 'email' ).value.trim() );
+  profileData.append( 'contactNo', document.getElementById( 'contactNo' ).value.trim() );
+  profileData.append( 'profession', document.getElementById( 'profession' ).value.trim() );
+  profileData.append( 'experience', document.getElementById( 'experience' ).value.trim() );
+  profileData.append( 'field', document.getElementById( 'field' ).value.trim() );
 
-  console.log("Sending profile data:", profileData); // Check data being sent
+  // Append the profile picture if a new one was selected
+  const profilePicInput = document.getElementById( 'profilePicInput' );
+  if ( profilePicInput.files[ 0 ] )
+  {
+    profileData.append( 'profilePicInput', profilePicInput.files[ 0 ] );
+  }
 
-  fetch('save_profile.php', {
+  console.log( "Sending profile data:", profileData ); // Check data being sent
+
+  fetch( 'save_profile.php', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(profileData)
-  })
-  .then(response => response.text()) // Check raw response
-  .then(text => {
-    console.log("Response text:", text);
-    try {
-      const data = JSON.parse(text);
-      if (data.success) {
-        inputs.forEach((input) => input.setAttribute("readonly", true));
-        saveButton.style.display = "none";
-        editButton.style.display = "inline-block";
-        console.log("Profile updated successfully:", data.message);
-      } else {
-        console.error("Error updating profile:", data.error);
-        alert(`Error: ${data.error}`);
+    body: profileData
+  } )
+    .then( response => response.text() ) // Check raw response
+    .then( text =>
+    {
+      console.log( "Response text:", text );
+      try
+      {
+        const data = JSON.parse( text );
+        if ( data.success )
+        {
+          inputs.forEach( ( input ) => input.setAttribute( "readonly", true ) );
+          saveButton.style.display = "none";
+          editButton.style.display = "inline-block";
+          console.log( "Profile updated successfully:", data.message );
+        } else
+        {
+          console.error( "Error updating profile:", data.error );
+          alert( `Error: ${ data.error }` );
+        }
+      } catch ( e )
+      {
+        console.error( 'Error parsing response:', e );
+        alert( 'Error saving profile data.' );
       }
-    } catch (e) {
-      console.error('Error parsing response:', e);
-      alert('Error saving profile data.');
-    }
-  })
-  .catch(error => {
-    console.error('Error saving profile data:', error);
-    alert('Error saving profile data.');
-  });
-});
-
+    } )
+    .catch( error =>
+    {
+      console.error( 'Error saving profile data:', error );
+      alert( 'Error saving profile data.' );
+    } );
+} );
 
 // Fetch profile data
 document.addEventListener("DOMContentLoaded", function () {
@@ -78,7 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('contactNo').value = data.contactNo || '';
           document.getElementById('profession').value = data.profession || '';
           document.getElementById('experience').value = data.experience || '';
-          document.getElementById('field').value = data.field || '';
+          document.getElementById( 'field' ).value = data.field || '';
+          document.getElementById( 'profileImg' ).src = data.profile_pic || '../../assets/images/default-pfp.jpg';
+
         }
       })
       .catch(error => {
@@ -130,12 +141,14 @@ profilePicInput.addEventListener("change", function () {
   }
 });
 
-document.getElementById("cropButton").addEventListener("click", function () {
-  const canvas = cropper.getCroppedCanvas({
+document.getElementById( "cropButton" ).addEventListener( "click", function ()
+{
+  const canvas = cropper.getCroppedCanvas( {
     width: 150,
     height: 150,
-  });
+  } );
 
   profileImg.src = canvas.toDataURL();
-  cropperModal.modal("hide");
-});
+  document.getElementById( 'croppedImage' ).value = canvas.toDataURL();
+  cropperModal.modal( "hide" );
+} );
