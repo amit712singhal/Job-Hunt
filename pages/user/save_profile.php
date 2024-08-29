@@ -19,17 +19,16 @@ if ($mysqli->connect_error) {
   exit();
 }
 
-// Read the raw input and decode the JSON data
-$data = json_decode(file_get_contents('php://input'), true);
-
 session_start();
 $user_id = $_SESSION['user_id'] ?? null;
 
-if (!isset($user_id)) {
+if (!$user_id) {
   echo json_encode(["error" => "User not logged in"]);
-  header("Location: ../../index.html"); // Redirect to login page if not logged in
   exit();
 }
+
+// Read the raw input and decode the JSON data
+$data = json_decode(file_get_contents('php://input'), true);
 
 $name = $data['name'] ?? null;
 $email = $data['email'] ?? null;
@@ -42,6 +41,36 @@ $field = $data['field'] ?? null;
 if (!$name || !$email) {
   echo json_encode(["error" => "Name and email are required"]);
   exit();
+}
+
+// Handle profile picture upload
+$profilePicPath = null;
+if (isset($_FILES['profilePicInput']) && $_FILES['profilePicInput']['error'] == UPLOAD_ERR_OK) {
+  $target_dir = "../../uploads/";
+  $target_file = $target_dir . basename($_FILES["profilePicInput"]["name"]);
+  $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+  // Check if image file is a real image
+  $check = getimagesize($_FILES["profilePicInput"]["tmp_name"]);
+  if ($check !== false) {
+    // Sanitize file name and validate image type
+    $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+    if (in_array($imageFileType, $allowed_types)) {
+      // Move the uploaded file to the target directory
+      if (move_uploaded_file($_FILES["profilePicInput"]["tmp_name"], $target_file)) {
+        $profilePicPath = 'uploads/' . basename($_FILES["profilePicInput"]["name"]); // Store relative path
+      } else {
+        echo json_encode(["error" => "Failed to upload profile picture"]);
+        exit();
+      }
+    } else {
+      echo json_encode(["error" => "Invalid image format"]);
+      exit();
+    }
+  } else {
+    echo json_encode(["error" => "File is not an image"]);
+    exit();
+  }
 }
 
 // Split the name into first name and last name
@@ -70,14 +99,14 @@ $stmt2->store_result();
 
 if ($stmt2->num_rows > 0) {
   // Update existing profile
-  $update_profile = "UPDATE user_profile SET contactNo = ?, profession = ?, experience = ?, field = ? WHERE user_id = ?";
+  $update_profile = "UPDATE user_profile SET contactNo = ?, profession = ?, experience = ?, field = ?, profile_pic = ? WHERE user_id = ?";
   $stmt3 = $mysqli->prepare($update_profile);
-  $stmt3->bind_param("ssssi", $contactNo, $profession, $experience, $field, $user_id);
+  $stmt3->bind_param("sssssi", $contactNo, $profession, $experience, $field, $profilePicPath, $user_id);
 } else {
   // Insert new profile
-  $insert_profile = "INSERT INTO user_profile (user_id, contactNo, profession, experience, field) VALUES (?, ?, ?, ?, ?)";
+  $insert_profile = "INSERT INTO user_profile (user_id, contactNo, profession, experience, field, profile_pic) VALUES (?, ?, ?, ?, ?, ?)";
   $stmt3 = $mysqli->prepare($insert_profile);
-  $stmt3->bind_param("issss", $user_id, $contactNo, $profession, $experience, $field);
+  $stmt3->bind_param("isssss", $user_id, $contactNo, $profession, $experience, $field, $profilePicPath);
 }
 $stmt2->close();
 
@@ -91,4 +120,5 @@ if ($success_login_signup && $success_profile) {
 } else {
   echo json_encode(["error" => "Failed to update profile"]);
 }
+
 ?>
