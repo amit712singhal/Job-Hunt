@@ -24,6 +24,7 @@
 
   <body>
 
+    <!--  -->
     <nav
       class="container-fluid d-flex justify-content-between flex-lg-row gap-lg-3 gap-1 flex-column align-items-center px-5 navbar align-content-center">
       <div class="logo-section d-flex">
@@ -48,7 +49,8 @@
       <div class="dropdown text-end">
         <a href="#" class="c-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <img src="../../assets/images/default-pfp.jpg" alt="mdo" width="32" height="32" class="rounded-circle" />
+          <img src="../../assets/images/default-pfp.jpg" alt="mdo" width="32" height="32" class="rounded-circle"
+            id="navProfileImg" />
         </a>
         <div class="dropdown-menu">
           <!-- Add your dropdown items here -->
@@ -63,10 +65,13 @@
       <div class="row justify-content-center d-flex">
         <div class="col-md-8 ">
           <div class="card  ">
+
+            <!--  -->
             <div class="card-header d-flex justify-content-between align-items-center">
               <h4 class="text-center">Personal Profile</h4>
-
             </div>
+
+            <!--  -->
             <div class="edit-section  d-flex justify-content-end my-2"><span id="editButton"
                 class="text-center rounded-2 text-light  Edit-button border-black p-2">Edit<i
                   class="ml-2 fa-solid fa-pen"></i></span><button type="button" id="saveButton"
@@ -81,12 +86,16 @@
 
                 <img src="../../assets/images/default-pfp.jpg" alt="Profile Picture" class="profile-img img-fluid "
                   id="profileImg" />
-                <input type="file" id="profilePicInput" style="display: none" accept="image/*" />
+                <input type="file" id="profilePicInput" name="profilePicInput" style="display: none" accept="image/*" />
                 <button class="btn btn-success" onclick="document.getElementById('profilePicInput').click();">
                   Change Picture
                 </button>
               </div>
-              <form id="profileForm" class="d-flex flex-wrap flex-column" onsubmit="submitForm(event)">
+
+              <!--  -->
+              <form id="profileForm" class="d-flex flex-wrap flex-column" onsubmit="submitForm(event)"
+                enctype="multipart/form-data">
+                <!-- Other form fields here -->
                 <div class="form-group">
                   <label for="name">Name </label>
                   <input type="text" class="form-control p-1 profile-detail" id="name" name="name" readonly />
@@ -114,7 +123,12 @@
                   <label for="field">Field</label>
                   <input type="text" class="form-control p-1 profile-detail" id="field" name="field" readonly />
                 </div>
+
+                <!-- Hidden input to store cropped image data -->
+                <input type="hidden" id="croppedImage" name="croppedImage" />
+
               </form>
+
             </div>
           </div>
         </div>
