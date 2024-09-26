@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,node,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,node,react
 
+node_modules
+
 ### Node ###
 # Logs
 logs
