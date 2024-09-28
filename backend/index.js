@@ -44,5 +44,5 @@ app.get( "*", ( _, res ) =>
 app.listen( PORT, () =>
 {
   connectDB();
-  console.log( `Server running at port ${ PORT }` );
+  console.log( `Website running at http://localhost:${ PORT }` );
 } )
