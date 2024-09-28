@@ -1,35 +1,37 @@
 <p align="center"><img align="center" width="280" src="./public/images/logo-dark.png"/></p>
 <p align="center"><img align="center" width="280" src="./public/images/logo-light.png#gh-light-mode-only"/></p>
-<h3 align="center">Get Live Weather Updates: Real-Time OpenWeather App</h3>
+<h3 align="center">Job Hunt: Connecting Recruiters and Job Seekers Efficiently</h3>
 <hr>
 
 <div align="center">
-<img src="https://custom-icon-badges.demolab.com/github/stars/amit712singhal/Sky-Now?label=Stars&labelColor=302d41&color=add8e6&logoColor=white&logo=star&style=for-the-badge"  />
-<img src="https://custom-icon-badges.demolab.com/github/issues/amit712singhal/sky-now?label=Issues&labelColor=302d41&color=90ee90&logoColor=white&logo=issue&style=for-the-badge"  />
-<img src="https://custom-icon-badges.demolab.com/github/issues-pr/amit712singhal/sky-now?&label=Pull%20requests&labelColor=302d41&color=ffb6c1&logoColor=white&logo=git-pull-request&style=for-the-badge"  />
-<img src="https://custom-icon-badges.demolab.com/github/forks/amit712singhal/sky-now?&label=forks&labelColor=302d41&color=ffa07a&logoColor=white&logo=fork&style=for-the-badge"  />
-<img src="https://custom-icon-badges.demolab.com/github/contributors/amit712singhal/sky-now?label=Contributors&labelColor=302d41&color=e6e6fa&logoColor=white&logo=people&style=for-the-badge"/>
-<img src="https://custom-icon-badges.demolab.com/github/license/amit712singhal/sky-now?label=LICENSE&labelColor=302d41&color=f0e68c&logoColor=white&logo=people&style=for-the-badge"/>
-<img src="https://custom-icon-badges.demolab.com/github/last-commit/amit712singhal/Sky-Now?label=last%20commit&labelColor=302d41&color=ffefd5&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/stars/amit712singhal/job-hunt?label=Stars&labelColor=302d41&color=add8e6&logoColor=white&logo=star&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/issues/amit712singhal/job-hunt?label=Issues&labelColor=302d41&color=90ee90&logoColor=white&logo=issue&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/issues-pr/amit712singhal/job-hunt?&label=Pull%20requests&labelColor=302d41&color=ffb6c1&logoColor=white&logo=git-pull-request&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/forks/amit712singhal/job-hunt?&label=forks&labelColor=302d41&color=ffa07a&logoColor=white&logo=fork&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/contributors/amit712singhal/job-hunt?label=Contributors&labelColor=302d41&color=e6e6fa&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/license/amit712singhal/job-hunt?label=LICENSE&labelColor=302d41&color=f0e68c&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/last-commit/amit712singhal/job-hunt?label=last%20commit&labelColor=302d41&color=ffefd5&logoColor=white&logo=people&style=for-the-badge"/>
 </div>
 
-Sky Now is a web application that provides real-time weather updates based on your current location. It gives you detailed weather information including temperature, humidity, wind speed, and more.
+Job Hunt is a web application designed for hirers and recruiters to connect and manage job postings and applications efficiently.
 
-Check out the live demo [here](https://amit712singhal.github.io/Sky-Now/).
+Check out the live demo [here](https://amit712singhal.github.io/job-hunt/).
 
 ## Preview
 
 ### Desktop
 
-![Destop Preview](public/images/demo.png)
+![Desktop Preview](public/images/demo.png)
 
 <details>
      <summary><h2>Table of Contents</h2></summary>
 
 - [Preview](#preview)
   - [Desktop](#desktop)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Local Setup](#local-setup)
+- [Hosting on Render](#hosting-on-render)
+  - [Update Environment in Production](#update-environment-in-production)
+  - [Final Deployment](#final-deployment)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
@@ -37,50 +39,130 @@ Check out the live demo [here](https://amit712singhal.github.io/Sky-Now/).
 - [License](#license)
 </details>
 
-## Installation
+## Local Setup
 
-To run this project locally, follow these steps:
+1. **Clone the Repository**
 
-1. **Clone the repository**
+```bash
+git clone https://github.com/amit712singhal/job-hunt.git
+cd job-hunt
+```
 
-   ```sh
-   git clone https://github.com/amit712singhal/Sky-Now.git
-   cd Sky-Now
-   ```
+2. **Create .env File in Root**
 
-2. **Open index.html in your web browser**
+Create a `.env` file in the root directory with the following content:
 
-      You can either open the index.html file directly in your browser or use a local server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VSCode to serve the files.
+```env
+PORT=8000
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<db_name>
+SECRET_KEY=randomsecretkey
+CLOUD_NAME=<cloud_name>
+API_KEY=<api_key>
+API_SECRET=<api_secret>
+```
 
-## Usage
+For setting up `.env` credentials:
+- Set up a MongoDB cluster.
+- Go to [Cloudinary](https://cloudinary.com/), log in, and navigate to the dashboard.
+- Under API keys, copy the following:
+  - `CLOUD_NAME`
+  - `API_KEY`
+  - `API_SECRET`
 
-1. **Grant location permission**
+3. **Backend Configuration**:
 
-     Once you've opened the application, it will request access to your device's location. Grant permission by clicking "Allow" or "Grant Access".
+Go to the backend index file and configure CORS settings:
 
-2. **View current weather**
+```js
+// cd backend/index.js
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  credentials: true,
+};
+```
 
-     After granting permission, the application will display the current weather information for your location, including temperature, humidity, wind speed, and more.
+4. **Frontend Configuration**:
 
-3. **Search for weather updates**
+Update the API endpoints in the frontend constants file:
 
-    To view the weather for a different location, enter the location name or city in the search bar and press Enter. The application will fetch and display the weather information for the searched location.
+```js
+// cd frontend/src/utils/constant.js
+export const USER_API_END_POINT = "http://localhost:8000/api/v1/user";
+export const JOB_API_END_POINT = "http://localhost:8000/api/v1/job";
+export const APPLICATION_API_END_POINT = "http://localhost:8000/api/v1/application";
+export const COMPANY_API_END_POINT = "http://localhost:8000/api/v1/company";
+```
+
+5. **Build and Run**:
+
+Run the following commands to build and start the application:
+
+```bash
+// cd root
+npm run build
+npm run start
+```
+
+The website will now be accessible at `http://localhost:8000`.
+
+## Hosting on Render
+
+To deploy the project on [Render](https://render.com/), follow these steps:
+
+1. Sign in with your GitHub account.
+2. Go to **New -> Web Service**.
+3. Select the repository to deploy.
+4. After connecting, update the build and start commands:
+   - **Build Command:** `npm run build`
+   - **Start Command:** `npm run start`
+5. Choose a suitable plan.
+6. Add your environment variables from the `.env` file in the settings.
+7. Deploy the service.
+
+### Update Environment in Production
+
+After deploying, update the URLs in the project to match the provided Render URL.
+
+1. Update the CORS origin:
+
+```js
+const corsOptions = {
+  origin: 'http://<your-render-url>',
+  credentials: true,
+};
+```
+
+2. Update the API endpoints in the frontend constants file:
+
+```js
+export const USER_API_END_POINT = "http://<your-render-url>/api/v1/user";
+export const JOB_API_END_POINT = "http://<your-render-url>/api/v1/job";
+export const APPLICATION_API_END_POINT = "http://<your-render-url>/api/v1/application";
+export const COMPANY_API_END_POINT = "http://<your-render-url>/api/v1/company";
+```
+
+### Final Deployment
+
+Go to **Manual Deploy** and deploy the latest commit.
 
 ## Features
 
-- Real-time weather updates
-- User-friendly interface
-- Detailed weather information
-- Supports multiple weather parameters like temperature, humidity, wind speed, etc.
-- Easy access to weather data for the current location
+- Job posting management
+- Application tracking
+- Cloud-based storage for job postings
+- Real-time job application updates
 
 ## Technologies Used
 
 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-     <img src="https://img.shields.io/badge/HTML-%23F06529.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
-     <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
-     <img src="https://custom-icon-badges.herokuapp.com/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-     <img src="https://custom-icon-badges.herokuapp.com/badge/OpenWeather%20API-D98457.svg?style=for-the-badge&logo=openweather&logoColor=white" alt="JavaScript">
+     <img src="https://img.shields.io/badge/MongoDB-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+     <img src="https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=white" alt="Express.js">
+     <img src="https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black" alt="React">
+     <img src="https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node-dot-js&logoColor=white" alt="Node.js">
+     <img src="https://img.shields.io/badge/Render-%2300b3ff.svg?style=for-the-badge&logo=render&logoColor=white" alt="Render">
+     <img src="https://img.shields.io/badge/Cloudinary-%23F68121.svg?style=for-the-badge&logo=cloudinary&logoColor=white" alt="Cloudinary">
+     <img src="https://img.shields.io/badge/JWT-%2300C58E.svg?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT">
+     <img src="https://img.shields.io/badge/bcrypt-%2300C58E.svg?style=for-the-badge&logo=security&logoColor=white" alt="Bcrypt">
 </div>
 
 ## Contributing
