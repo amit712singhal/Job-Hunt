@@ -17,12 +17,6 @@ Job Hunt is a web application designed for hirers and recruiters to connect and 
 
 Check out the live demo [here](https://amit712singhal.github.io/job-hunt/).
 
-## Preview
-
-### Desktop
-
-![Desktop Preview](public/images/demo.png)
-
 <details>
      <summary><h2>Table of Contents</h2></summary>
 
