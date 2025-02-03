@@ -1,21 +1,18 @@
-<p align="center"><img align="center" width="280" src="./public/images/logo-dark.png"/></p>
-<p align="center"><img align="center" width="280" src="./public/images/logo-light.png#gh-light-mode-only"/></p>
+<p align="center"><img align="center" width="280" src="./frontend/images/logo.png"/></p>
 <h3 align="center">Job Hunt: Connecting Recruiters and Job Seekers Efficiently</h3>
 <hr>
 
 <div align="center">
-<img src="https://custom-icon-badges.demolab.com/github/stars/amit712singhal/job-hunt?label=Stars&labelColor=302d41&color=add8e6&logoColor=white&logo=star&style=for-the-badge" />
-<img src="https://custom-icon-badges.demolab.com/github/issues/amit712singhal/job-hunt?label=Issues&labelColor=302d41&color=90ee90&logoColor=white&logo=issue&style=for-the-badge" />
-<img src="https://custom-icon-badges.demolab.com/github/issues-pr/amit712singhal/job-hunt?&label=Pull%20requests&labelColor=302d41&color=ffb6c1&logoColor=white&logo=git-pull-request&style=for-the-badge" />
-<img src="https://custom-icon-badges.demolab.com/github/forks/amit712singhal/job-hunt?&label=forks&labelColor=302d41&color=ffa07a&logoColor=white&logo=fork&style=for-the-badge" />
-<img src="https://custom-icon-badges.demolab.com/github/contributors/amit712singhal/job-hunt?label=Contributors&labelColor=302d41&color=e6e6fa&logoColor=white&logo=people&style=for-the-badge"/>
-<img src="https://custom-icon-badges.demolab.com/github/license/amit712singhal/job-hunt?label=LICENSE&labelColor=302d41&color=f0e68c&logoColor=white&logo=people&style=for-the-badge"/>
-<img src="https://custom-icon-badges.demolab.com/github/last-commit/amit712singhal/job-hunt?label=last%20commit&labelColor=302d41&color=ffefd5&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/stars/amit712singhal/Job-Hunt?label=Stars&labelColor=302d41&color=add8e6&logoColor=white&logo=star&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/issues/amit712singhal/Job-Hunt?label=Issues&labelColor=302d41&color=90ee90&logoColor=white&logo=issue&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/issues-pr/amit712singhal/Job-Hunt?&label=Pull%20requests&labelColor=302d41&color=ffb6c1&logoColor=white&logo=git-pull-request&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/forks/amit712singhal/Job-Hunt?&label=forks&labelColor=302d41&color=ffa07a&logoColor=white&logo=fork&style=for-the-badge" />
+<img src="https://custom-icon-badges.demolab.com/github/contributors/amit712singhal/Job-Hunt?label=Contributors&labelColor=302d41&color=e6e6fa&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/license/amit712singhal/Job-Hunt?label=LICENSE&labelColor=302d41&color=f0e68c&logoColor=white&logo=people&style=for-the-badge"/>
+<img src="https://custom-icon-badges.demolab.com/github/last-commit/amit712singhal/Job-Hunt?label=last%20commit&labelColor=302d41&color=ffefd5&logoColor=white&logo=people&style=for-the-badge"/>
 </div>
 
 Job Hunt is a web application designed for hirers and recruiters to connect and manage job postings and applications efficiently.
-
-Check out the live demo [here](https://amit712singhal.github.io/job-hunt/).
 
 <details>
      <summary><h2>Table of Contents</h2></summary>
@@ -204,4 +201,3 @@ I love connecting with new people and exploring new opportunities. Feel free to 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-# Job-Hunt
