@@ -1,4 +1,4 @@
-<p align="center"><img align="center" width="400px" src="./frontend/images/logo/full_logo_dark.svg#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" width="400px" src="./frontend/images/logo/full_logo (dark2).svg#gh-dark-mode-only"/></p>
 <p align="center"><img align="center" width="400px" src="./frontend/images/logo/full_logo.svg#gh-light-mode-only"/></p>
 <h3 align="center">Job Hunt: Connecting Recruiters and Job Seekers Efficiently</h3>
 <hr>
