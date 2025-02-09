@@ -1,5 +1,5 @@
-<p align="center"><img align="center" width="400px" src="./frontend/images/logo/full_logo (dark2).svg#gh-dark-mode-only"/></p>
-<p align="center"><img align="center" width="400px" src="./frontend/images/logo/full_logo.svg#gh-light-mode-only"/></p>
+<p align="center"><img align="center" width="400px" src="./frontend/images/logo/logo (dark).svg#gh-dark-mode-only"/></p>
+<p align="center"><img align="center" width="400px" src="./frontend/images/logo/logo (light).svg#gh-light-mode-only"/></p>
 <h3 align="center">Job Hunt: Connecting Recruiters and Job Seekers Efficiently</h3>
 <hr>
 
@@ -18,8 +18,6 @@ Job Hunt is a web application designed for hirers and recruiters to connect and 
 <details>
      <summary><h2>Table of Contents</h2></summary>
 
-- [Preview](#preview)
-  - [Desktop](#desktop)
 - [Local Setup](#local-setup)
 - [Hosting on Render](#hosting-on-render)
   - [Update Environment in Production](#update-environment-in-production)
